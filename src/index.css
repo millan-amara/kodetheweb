@@ -1,13 +1,192 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* #landing {
+    background-image: url('/code.jpg');
+    opacity: 0.2;
+} */
+.background-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.background-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/code.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* Adjust the opacity value */
+    z-index: 1;
 }
+
+.background-content {
+    position: relative;
+    z-index: 2;
+    color: white; /* Adjust text color for better visibility */
+    padding: 20px;
+}
+
+.anime{
+    animation: movedown 1s linear forwards;
+  }
+  @keyframes movedown {
+    0%{
+      opacity: 1;
+      transform: translateY(-30px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  
+  .anime:nth-child(2){
+    animation-delay: 0.5s;
+  }
+  .anime:nth-child(3){
+    animation-delay: 1s;
+  }
+  .anime:nth-child(4){
+    animation-delay: 1.5s;
+  }
+  
+  .text-box{
+    padding: 20px 30px;
+    font-size: 15px;
+  }
+  
+  .left-container{
+    left: 0;
+  }
+  .right-container{
+    left: 50%;
+  }
+  
+  .right-container img {
+    left: -20px;
+  }
+  
+  .timeline::after{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: #082F49;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    animation: moveline 3s linear forwards;
+  }
+  @keyframes moveline {
+    0%{
+      height: 0;
+    }
+    100%{
+      height: 100%;
+    }
+  }
+  
+  .text-box h2{
+    font-weight: 600;
+  }
+  .text-box small{
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  
+  .left-container-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 20;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #082f49;
+    right: 50px;
+  }
+  
+  .right-container-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #082f49;
+    left: 50px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .timeline::after{
+      left: 31px;
+    }
+    .anime{
+      width: 100%;
+      padding-left: 80px;
+      padding-right: 25px;
+    }
+    .text-box{
+      font-size: 13px;
+    }
+    .text-box small{
+      margin-bottom: 10px;
+    }
+    .right-container{
+      left: 0;
+    }
+    .left-container img, .right-container img{
+      left: 10px;
+    }
+    .left-container-arrow, .right-container-arrow{
+      border-right: 15px solid #082f49;
+      border-left: 0;
+      left: 66px;
+    }
+    
+  }
+
+  #contact {
+    background-color: white;
+    padding: 100px 0;
+  }
+
+  .contact {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .contact p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  .contact-form label {
+    font-size: 18px;
+    display: block;
+  }
